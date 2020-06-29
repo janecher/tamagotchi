@@ -59,15 +59,14 @@ describe('Property values over time', () => {
     expect(tamagotchi.cleanliness).toBe(8);
   });
 
-  test('should decrease health property by 1 every 5 seconds', () => {
+  test('should not decrease health property by 1 every 5 seconds', () => {
     jest.advanceTimersByTime(5000);
-    expect(tamagotchi.health).toEqual(9)
+    expect(tamagotchi.health).toEqual(10)
   });
 
-  test('should decrease health property by 1 for every other property that is 0', () => {
+  test('should decrease health property by 1 if another property is equal to 0', () => {
     tamagotchi.hunger = 0;
-    tamagotchi.happiness = 0;
     jest.advanceTimersByTime(5000);
-    expect(tamagotchi.health).toEqual(8);
+    expect(tamagotchi.health).toEqual(9);
   });
 });

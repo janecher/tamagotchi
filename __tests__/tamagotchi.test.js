@@ -14,3 +14,21 @@ describe('create Tamagotchi object', () => {
     });
   });
 });
+
+describe('Property values over time', () => {
+  jest.useFakeTimers();
+  let tamagotchi;
+
+  beforeEach(function() {
+    tamagotchi = new Tamagotchi();
+  });
+
+  afterEach(function() {
+    jest.clearAllTimers();
+  });
+
+  test('should decrease hunger property by 1 every 5 seconds', () => {
+    jest.advanceTimersByTime(5000);
+    expect(tamagotchi.hunger).toBe(4);
+  });
+});

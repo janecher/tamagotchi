@@ -52,5 +52,15 @@ export class Tamagotchi {
       }
     }, 5000);
   }
+
+  setIsSick() {
+    setInterval(() => {
+      if(this.hunger <= 0 || this.sleep <= 0 || this.happiness <= 0 || this.cleanliness <= 0) {
+        this.isSick = true;
+      } else {
+        this.isSick = false;
+      }
+    }, 1000);
+  }
 }
 

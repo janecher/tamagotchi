@@ -25,6 +25,7 @@ describe('Property values over time', () => {
     tamagotchi.setHappiness();
     tamagotchi.setSleep();
     tamagotchi.setCleanliness();
+    tamagotchi.setHealth();
   });
 
   afterEach(function() {
@@ -61,5 +62,12 @@ describe('Property values over time', () => {
   test('should decrease health property by 1 every 5 seconds', () => {
     jest.advanceTimersByTime(5000);
     expect(tamagotchi.health).toEqual(9)
-  })
+  });
+
+  test('should decrease health property by 1 for every other property that is 0', () => {
+    tamagotchi.hunger = 0;
+    tamagotchi.happiness = 0;
+    jest.advanceTimersByTime(5000);
+    expect(tamagotchi.health).toEqual(8);
+  });
 });

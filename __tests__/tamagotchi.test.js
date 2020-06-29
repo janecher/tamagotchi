@@ -66,7 +66,8 @@ describe('Property values over time', () => {
 
   test('should decrease health property by 1 if another property is equal to 0', () => {
     tamagotchi.hunger = 0;
+    tamagotchi.sleep = 0;
     jest.advanceTimersByTime(5000);
-    expect(tamagotchi.health).toEqual(9);
+    expect(tamagotchi.health).toBe(8);
   });
 });

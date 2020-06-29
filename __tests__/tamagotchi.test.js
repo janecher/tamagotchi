@@ -44,4 +44,15 @@ describe('Property values over time', () => {
     jest.advanceTimersByTime(5000);
     expect(tamagotchi.happiness).toBe(1);
   });
+
+  test('should decrease cleanliness property by 1 every 7 seconds', () => {
+    jest.advanceTimersByTime(7000);
+    expect(tamagotchi.cleanliness).toBe(9);
+  });
+
+  test('if sick, should decrease cleanliness property by 2 every 7 seconds', () => {
+    jest.advanceTimersByTime(7000);
+    tamagotchi.isSick = true;
+    expect(tamagotchi.cleanliness).toBe(8);
+  });
 });

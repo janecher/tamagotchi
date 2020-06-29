@@ -32,4 +32,14 @@ describe('Property values over time', () => {
     jest.advanceTimersByTime(5000);
     expect(tamagotchi.hunger).toBe(4);
   });
+
+  test('should decrease sleep property by 1 every 10 seconds', () => {
+    jest.advanceTimersByTime(10000);
+    expect(tamagotchi.sleep).toBe(6);
+  });
+
+  test('should decrease happiness property by 1 every 5 seconds', () => {
+    jest.advanceTimersByTime(5000);
+    expect(tamagotchi.happiness).toBe(1);
+  });
 });

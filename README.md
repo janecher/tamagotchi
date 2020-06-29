@@ -16,7 +16,7 @@ _Long deiscription._
 | Decrease sleep property by 1 every 10 seconds | sleep: 10 | 10 sec later: sleep: 9 |
 | Decrease happiness property by 1 every 5 seconds | happiness: 5 | 5 sec later: happiness: 5 |
 | Decrease cleanliness property by 1 every 7 seconds, if sick decrease by 2 | cleanliness: 10 | 7 sec later: cleanliness: 9 |
-| Decrease health property by 1 for every property has values less than 1, each 5 seconds | health: 10 | 5 sec later: health: 8, hunger: 0, sleep: 0 |
+| Decrease health property by 1 for every property that has values less than 1, each 5 seconds | health: 10 | 5 sec later: health: 8, hunger: 0, sleep: 0 |
 | Set isSick property to true if values of any other properties are < 1 | sleep = 0 | isSick = true |
 | Game stop if health < 0 | health < 1 | game over |
 | User can feed tamagotchi | hunger = 5 | feed(tamagotchi) => hunger += 3, but no more than level 10; |

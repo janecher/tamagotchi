@@ -21,6 +21,7 @@ describe('Property values over time', () => {
 
   beforeEach(function() {
     tamagotchi = new Tamagotchi();
+    tamagotchi.setHunger();
   });
 
   afterEach(function() {

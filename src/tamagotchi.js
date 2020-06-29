@@ -24,6 +24,15 @@ export class Tamagotchi {
     setInterval(() => {
       this.happiness--;
     }, 5000);
+  }
 
+  setCleanliness() {
+    setInterval(() => {
+      if(this.isSick) {
+        this.cleanliness -=2;
+      } else {
+        this.cleanliness--;
+      }
+    }, 7000);
   }
 }

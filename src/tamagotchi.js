@@ -35,4 +35,22 @@ export class Tamagotchi {
       }
     }, 7000);
   }
+
+  setHealth() {
+    setInterval(() => {
+      if (this.hunger <= 0) {
+        this.health--;
+      }
+      if (this.sleep <= 0) {
+        this.health--;
+      }
+      if (this.happiness <= 0) {
+        this.health--;
+      }
+      if (this.cleanliness <= 0) {
+        this.health--;
+      }
+    }, 5000);
+  }
 }
+

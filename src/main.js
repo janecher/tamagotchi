@@ -18,31 +18,53 @@ $(document).ready(function(){
   tamagotchi.setCleanliness();
   tamagotchi.setHealth();
   tamagotchi.setIsSick();
-  setInterval(() => {
+
+  let info = setInterval(() => {
     $(".hungerLevel").text(tamagotchi.hunger);
     $(".sleepLevel").text(tamagotchi.sleep);
     $(".happinessLevel").text(tamagotchi.happiness);
     $(".cleanlinessLevel").text(tamagotchi.cleanliness);
     $(".healthLevel").text(tamagotchi.health);
     $(".sickStatus").text(tamagotchi.isSick ? "yes" : "no");
+    if(tamagotchi.health <= 0) {
+      $(".game-over").text("GAME OVER");
+      clearInterval(info);
+    }
   }, 1000);
+  
   $(".feed").click(function() {
-    tamagotchi.feed();
-    $(".hungerLevel").text(tamagotchi.hunger);
+    if(tamagotchi.health <= 0) {
+      $(".feed").prop('disabled', true);
+    } else {
+      tamagotchi.feed();
+      $(".hungerLevel").text(tamagotchi.hunger);
+    }
   });
   
   $(".putToBed").click(function() {
-    tamagotchi.putToBed();
-    $(".sleepLevel").text(tamagotchi.sleep);
+    if(tamagotchi.health <= 0) {
+      $(".putToBed").prop('disabled', true);
+    } else {
+      tamagotchi.putToBed();
+      $(".sleepLevel").text(tamagotchi.sleep);
+    }
   });
   
   $(".play").click(function() {
-    tamagotchi.play();
-    $(".happinessLevel").text(tamagotchi.happiness);
+    if(tamagotchi.health <= 0) {
+      $(".play").prop('disabled', true);
+    } else {
+      tamagotchi.play();
+      $(".happinessLevel").text(tamagotchi.happiness);
+    }
   });
   
   $(".wash").click(function() {
-    tamagotchi.wash();
-    $(".cleanlinessLevel").text(tamagotchi.cleanliness);
+    if(tamagotchi.health <= 0) {
+      $(".wash").prop('disabled', true);
+    } else {
+      tamagotchi.wash();
+      $(".cleanlinessLevel").text(tamagotchi.cleanliness);
+    }
   });
 });

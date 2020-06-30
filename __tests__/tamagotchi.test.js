@@ -10,7 +10,8 @@ describe('create Tamagotchi object', () => {
       sleep: 7, 
       happiness: 2, 
       cleanliness: 10, 
-      isSick: false
+      isSick: false,
+      isDead: false
     });
   });
 });
@@ -95,5 +96,10 @@ describe('Property values over time', () => {
     tamagotchi.cleanliness = 5
     tamagotchi.wash();
     expect(tamagotchi.cleanliness).toBe(10);
+  });
+
+  test('should set isDead property to true if health <= 0', () => {
+    tamagotchi.health = 0;
+    expect(tamagotchi.isDead).toBe(true);
   });
 });

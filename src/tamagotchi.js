@@ -10,28 +10,40 @@ export class Tamagotchi {
 
   setHunger() {
     setInterval(() => {
-      this.hunger--;
+      if(this.hunger > 0) {
+        this.hunger--;
+      }
     }, 5000);
   }
 
   setSleep() {
     setInterval(() => {
-      this.sleep--;
+      if(this.sleep > 0) {
+        this.sleep--;
+      }
     }, 10000);
   }
 
   setHappiness() {
     setInterval(() => {
-      this.happiness--;
+      if(this.happiness > 0) {
+        this.happiness--;
+      }
     }, 5000);
   }
 
   setCleanliness() {
     setInterval(() => {
-      if(this.isSick) {
-        this.cleanliness -=2;
-      } else {
-        this.cleanliness--;
+      if (this.cleanliness > 0) {
+        if(this.isSick) {
+          if(this.cleanliness - 2 < 0) {
+            this.cleanliness = 0;
+          } else {
+            this.cleanliness -=2;
+          }
+        } else {
+          this.cleanliness--;
+        }
       }
     }, 7000);
   }

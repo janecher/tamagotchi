@@ -6,6 +6,7 @@ export class Tamagotchi {
     this.happiness = 2; 
     this.cleanliness = 10; 
     this.isSick = false;
+    this.isDead = false;
   }
 
   setHunger() {
@@ -71,6 +72,14 @@ export class Tamagotchi {
         this.isSick = true;
       } else {
         this.isSick = false;
+      }
+    }, 1000);
+  }
+
+  setIsDead() {
+    setInterval(() => {
+      if(this.health <=0) {
+        this.isDead = true;
       }
     }, 1000);
   }

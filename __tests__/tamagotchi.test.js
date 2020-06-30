@@ -111,8 +111,9 @@ describe('Property values over time', () => {
   // });
 
   test('should stop intervals if property is zero', () => {
-    jest.advanceTimersByTime(30000);
-    tamagotchi.resetInterval();
+    jest.advanceTimersByTime(100000);
     expect(tamagotchi.hunger).toBe(0)
+    expect(tamagotchi.sleep).toBe(0);
+    expect(tamagotchi.cleanliness).toBe(0);
   })
 });

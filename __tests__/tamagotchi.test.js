@@ -10,8 +10,7 @@ describe('create Tamagotchi object', () => {
       sleep: 7, 
       happiness: 2, 
       cleanliness: 10, 
-      isSick: false,
-      isDead: false
+      isSick: false
     });
   });
 });
@@ -28,12 +27,10 @@ describe('Property values over time', () => {
     tamagotchi.setIsSick();
     tamagotchi.setCleanliness();
     tamagotchi.setHealth();
-    //tamagotchi.setIsDead();
   });
 
   afterEach(function() {
     jest.clearAllTimers();
-
   });
 
   test('should decrease hunger property by 1 every 5 seconds', () => {
@@ -98,11 +95,6 @@ describe('Property values over time', () => {
     tamagotchi.wash();
     expect(tamagotchi.cleanliness).toBe(10);
   });
-
-  /*test('should set isDead property to true if health <= 0', () => {
-    jest.advanceTimersByTime(100000);
-    expect(tamagotchi.isDead).toBe(true);
-  });*/
 
   test('should stop intervals if property is zero', () => {
     jest.advanceTimersByTime(100000);

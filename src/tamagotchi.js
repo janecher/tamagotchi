@@ -70,5 +70,21 @@ export class Tamagotchi {
       this.hunger += (10 - this.hunger);
     }
   }
+
+  putToBed() {
+    // if (this.sleep + 3 <= 10) {
+    //   this.sleep += 3;
+    // } else {
+    //   this.sleep += (10 - this.sleep);
+    // }
+  }
+
+  play() {
+
+  }
+
+  wash () {
+
+  }
 }
 

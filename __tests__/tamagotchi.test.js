@@ -77,8 +77,21 @@ describe('Property values over time', () => {
   test('should increase hunger by 3 when user feeds', () => {
     tamagotchi.feed();
     tamagotchi.feed();
-    tamagotchi.feed();
-    tamagotchi.feed();
     expect(tamagotchi.hunger).toBe(10)
+  });
+
+  test('should increase sleep by 1 when user puts to bed', () => {
+    tamagotchi.putToBed();
+    expect(tamagotchi.sleep).toBe(10);
+  });
+
+  test('should increase happiness by 5 when user plays', () => {
+    tamagotchi.play();
+    expect(tamagotchi.happiness).toBe(10);
+  });
+
+  test('should increase cleanliness to 10 when user washes', () => {
+    tamagotchi.wash();
+    expect(tamagotchi.cleanliness).toBe(9);
   });
 });

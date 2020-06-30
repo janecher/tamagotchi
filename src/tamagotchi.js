@@ -10,47 +10,47 @@ export class Tamagotchi {
   }
 
   setHunger() {
-    setInterval(() => {
-      if(this.hunger > 0) {
+    let hungerInterval = setInterval(() => {
         this.hunger--;
-      }
     }, 5000);
+    if (this.hunger <= 0) {
+      clearInterval(hungerInterval);
+    }
   }
 
   setSleep() {
-    setInterval(() => {
-      if(this.sleep > 0) {
+   let sleepInterval = setInterval(() => {
         this.sleep--;
-      }
     }, 10000);
+    if (this.sleep <= 0) {
+      clearInterval(sleepInterval);
+    }
   }
 
   setHappiness() {
-    setInterval(() => {
-      if(this.happiness > 0) {
+    let happinessInterval = setInterval(() => {
         this.happiness--;
-      }
     }, 5000);
+    if(this.happiness <= 0) {
+      clearInterval(happinessInterval);
+    }
   }
 
   setCleanliness() {
-    setInterval(() => {
-      if (this.cleanliness > 0) {
-        if(this.isSick) {
-          if(this.cleanliness - 2 < 0) {
-            this.cleanliness = 0;
-          } else {
-            this.cleanliness -=2;
-          }
-        } else {
-          this.cleanliness--;
-        }
+    let cleanlinessInterval = setInterval(() => {
+      if((this.isSick) && (this.cleanliness - 2 > 0)) {
+        this.cleanliness -= 2;
+      } else {
+        this.cleanliness --;
       }
     }, 7000);
+    if(this.cleanliness <= 0) {
+      clearInterval(cleanlinessInterval);
+    }
   }
 
   setHealth() {
-    setInterval(() => {
+    let healthInterval = setInterval(() => {
       if (this.hunger <= 0) {
         this.health--;
       }
@@ -64,6 +64,9 @@ export class Tamagotchi {
         this.health--;
       }
     }, 5000);
+    if (this.isDead) {
+      clearInterval(healthInterval);
+    }
   }
 
   setIsSick() {
@@ -80,6 +83,12 @@ export class Tamagotchi {
     setInterval(() => {
       if(this.health <=0) {
         this.isDead = true;
+        // this.hunger = 0;
+        this.sleep = 0;
+        this.happiness = 0;
+        this.cleanliness = 0;
+        this.health = 0
+        this.isSick = false;
       }
     }, 1000);
   }

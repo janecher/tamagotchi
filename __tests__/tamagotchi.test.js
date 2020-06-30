@@ -76,6 +76,9 @@ describe('Property values over time', () => {
 
   test('should increase hunger by 3 when user feeds', () => {
     tamagotchi.feed();
+    tamagotchi.feed();
+    tamagotchi.feed();
+    tamagotchi.feed();
     expect(tamagotchi.hunger).toBe(10)
   });
 });

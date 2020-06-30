@@ -62,9 +62,13 @@ export class Tamagotchi {
       }
     }, 1000);
   }
-  
-  feed() {
 
+  feed() {
+    if (this.hunger + 3 <= 10) {
+      this.hunger += 3;
+    } else {
+      this.hunger += (10 - this.hunger);
+    }
   }
 }
 

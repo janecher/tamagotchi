@@ -6,7 +6,6 @@ export class Tamagotchi {
     this.happiness = 2; 
     this.cleanliness = 10; 
     this.isSick = false;
-    this.isDead = false;
   }
 
   setHunger() {
@@ -20,7 +19,7 @@ export class Tamagotchi {
 
   setSleep() {
     let sleepInterval = setInterval(() => {
-        this.sleep--;
+      this.sleep--;
         if (this.sleep <= 0) {
           clearInterval(sleepInterval);
         }
@@ -78,15 +77,6 @@ export class Tamagotchi {
       }
     }, 1000);
   }
-
-  /*setIsDead() {
-    setInterval(() => {
-      if(this.health <=0) {
-        this.isDead = true;
-        // this.isSick = false;
-      }
-    }, 1000);
-  }*/
 
   feed() {
     if (this.hunger + 3 <= 10) {

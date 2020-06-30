@@ -62,5 +62,9 @@ export class Tamagotchi {
       }
     }, 1000);
   }
+  
+  feed() {
+
+  }
 }
 

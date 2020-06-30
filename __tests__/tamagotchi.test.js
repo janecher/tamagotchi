@@ -28,6 +28,7 @@ describe('Property values over time', () => {
     tamagotchi.setIsSick();
     tamagotchi.setCleanliness();
     tamagotchi.setHealth();
+    tamagotchi.setIsDead();
   });
 
   afterEach(function() {
@@ -99,7 +100,7 @@ describe('Property values over time', () => {
   });
 
   test('should set isDead property to true if health <= 0', () => {
-    tamagotchi.health = 0;
+    jest.advanceTimersByTime(100000);
     expect(tamagotchi.isDead).toBe(true);
   });
 });

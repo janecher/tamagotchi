@@ -11,29 +11,29 @@ export class Tamagotchi {
 
   setHunger() {
     let hungerInterval = setInterval(() => {
-        this.hunger--;
+      this.hunger--;
+      if (this.hunger <= 0) {
+        clearInterval(hungerInterval);
+      }
     }, 5000);
-    if (this.hunger <= 0) {
-      clearInterval(hungerInterval);
-    }
   }
 
   setSleep() {
-   let sleepInterval = setInterval(() => {
+    let sleepInterval = setInterval(() => {
         this.sleep--;
+        if (this.sleep <= 0) {
+          clearInterval(sleepInterval);
+        }
     }, 10000);
-    if (this.sleep <= 0) {
-      clearInterval(sleepInterval);
-    }
   }
 
   setHappiness() {
     let happinessInterval = setInterval(() => {
         this.happiness--;
+        if(this.happiness <= 0) {
+          clearInterval(happinessInterval);
+        }
     }, 5000);
-    if(this.happiness <= 0) {
-      clearInterval(happinessInterval);
-    }
   }
 
   setCleanliness() {
@@ -43,30 +43,30 @@ export class Tamagotchi {
       } else {
         this.cleanliness --;
       }
+      if(this.cleanliness <= 0) {
+        clearInterval(cleanlinessInterval);
+      }
     }, 7000);
-    if(this.cleanliness <= 0) {
-      clearInterval(cleanlinessInterval);
-    }
   }
 
   setHealth() {
     let healthInterval = setInterval(() => {
-      if (this.hunger <= 0) {
+      if (this.hunger <= 0 && this.health > 0) {
         this.health--;
       }
-      if (this.sleep <= 0) {
+      if (this.sleep <= 0 && this.health > 0) {
         this.health--;
       }
-      if (this.happiness <= 0) {
+      if (this.happiness <= 0 && this.health > 0) {
         this.health--;
       }
-      if (this.cleanliness <= 0) {
+      if (this.cleanliness <= 0 && this.health > 0) {
         this.health--;
+      }
+      if (this.health <= 0) {
+        clearInterval(healthInterval);
       }
     }, 5000);
-    if (this.isDead) {
-      clearInterval(healthInterval);
-    }
   }
 
   setIsSick() {
@@ -79,19 +79,14 @@ export class Tamagotchi {
     }, 1000);
   }
 
-  setIsDead() {
+  /*setIsDead() {
     setInterval(() => {
       if(this.health <=0) {
         this.isDead = true;
-        // this.hunger = 0;
-        this.sleep = 0;
-        this.happiness = 0;
-        this.cleanliness = 0;
-        this.health = 0
-        this.isSick = false;
+        // this.isSick = false;
       }
     }, 1000);
-  }
+  }*/
 
   feed() {
     if (this.hunger + 3 <= 10) {

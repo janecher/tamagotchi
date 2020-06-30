@@ -72,19 +72,25 @@ export class Tamagotchi {
   }
 
   putToBed() {
-    // if (this.sleep + 3 <= 10) {
-    //   this.sleep += 3;
-    // } else {
-    //   this.sleep += (10 - this.sleep);
-    // }
+    if (this.sleep + 3 <= 10) {
+      this.sleep += 3;
+    } else {
+      this.sleep += (10 - this.sleep);
+    }
   }
 
   play() {
-
+    if (this.happiness + 5 <= 10) {
+      this.happiness += 5;
+    } else {
+      this.happiness += (10 - this.happiness);
+    }
   }
 
   wash () {
-
+    if (this.cleanliness <= 10) {
+      this.cleanliness = 10;
+    }
   }
 }
 

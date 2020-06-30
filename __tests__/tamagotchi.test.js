@@ -104,8 +104,15 @@ describe('Property values over time', () => {
     expect(tamagotchi.isDead).toBe(true);
   });
 
-  test('should stop hunger timer after 5 seconds', () => {
-    jest.advanceTimersByTime(26000);
-    expect(tamagotchi.hunger).toBe(0);
-  });
+  // test('should stop hunger timer after 5 seconds', () => {
+  //   jest.advanceTimersByTime(30000);
+  //   expect(tamagotchi.hunger).toBe(0);
+  //   expect(tamagotchi.happiness).toBe(0);
+  // });
+
+  test('should stop intervals if property is zero', () => {
+    jest.advanceTimersByTime(30000);
+    tamagotchi.resetInterval();
+    expect(tamagotchi.hunger).toBe(0)
+  })
 });

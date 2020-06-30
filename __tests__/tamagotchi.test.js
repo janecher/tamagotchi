@@ -73,4 +73,9 @@ describe('Property values over time', () => {
     jest.advanceTimersByTime(25000);
     expect(tamagotchi.isSick).toBe(true);
   });
+
+  test('should increase hunger by 3 when user feeds', () => {
+    tamagotchi.feed();
+    expect(tamagotchi.hunger).toBe(10)
+  });
 });
